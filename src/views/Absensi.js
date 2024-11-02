@@ -1,55 +1,5 @@
 import { useState } from "react";
-import {
-  Card,
-  CardBody,
-  CardTitle,
-  CardSubtitle,
-  Table,
-  Button,
-} from "reactstrap";
-
-const tableData = [
-  {
-    nama_karyawan: "Wahyu Rifia Rizki",
-    tanggal: "01-02-2003",
-    lokasi_absen: "Kampus Kimia",
-    jam_masuk: "16:21:14",
-    jam_keluar: "18:09:22",
-
-  },
-  {
-    nama_karyawan: "Wahyu Rifia Rizki",
-    tanggal: "01-02-2003",
-    lokasi_absen: "Kampus Kimia",
-    jam_masuk: "16:21:14",
-    jam_keluar: "18:09:22",
-
-  },
-  {
-    nama_karyawan: "Wahyu Rifia Rizki",
-    tanggal: "01-02-2003",
-    lokasi_absen: "Kampus Kimia",
-    jam_masuk: "16:21:14",
-    jam_keluar: "18:09:22",
-
-  },
-  {
-    nama_karyawan: "Wahyu Rifia Rizki",
-    tanggal: "01-02-2003",
-    lokasi_absen: "Kampus Kimia",
-    jam_masuk: "16:21:14",
-    jam_keluar: "18:09:22",
-
-  },
-  {
-    nama_karyawan: "Wahyu Rifia Rizki",
-    tanggal: "01-02-2003",
-    lokasi_absen: "Kampus Kimia",
-    jam_masuk: "16:21:14",
-    jam_keluar: "18:09:22",
-
-  },
-];
+import { Card, CardBody, CardTitle, Table, Button } from "reactstrap";
 
 const Absensi = () => {
   const [data, setData] = useState([
@@ -122,8 +72,8 @@ const Absensi = () => {
       lokasi_absen: "Kampus Geografi",
       jam_masuk: "08:30:00",
       jam_keluar: "10:00:00",
-    }
-  ])
+    },
+  ]);
 
   const removeData = (index) => {
     const updateData = data.filter((_, i) => i !== index);
@@ -134,8 +84,7 @@ const Absensi = () => {
       <Card>
         <CardBody>
           <div className="d-flex gap-5">
-            <CardTitle tag="h5">Data Karyawan</CardTitle>
-
+            <CardTitle tag="h5">Data Absensi</CardTitle>
           </div>
           <Table className="no-wrap mt-3 align-middle" responsive borderless>
             <thead>
@@ -150,35 +99,33 @@ const Absensi = () => {
               </tr>
             </thead>
             <tbody>
-              {data.map(({ nama_karyawan, tanggal, lokasi_absen, jam_keluar, jam_masuk }, index) => (
-                <tr key={index} className="border-top">
-                  <td>
-                    {index + 1}
-                  </td>
-                  <td>
-                    {nama_karyawan}
-                  </td>
-                  <td>
-                    {tanggal}
-                  </td>
-                  <td>
-                    {lokasi_absen}
-                  </td>
-                  <td>
-                    {jam_masuk}
-                  </td>
-                  <td>
-                    {jam_keluar}
-                  </td>
+              {data.map(
+                (
+                  {
+                    nama_karyawan,
+                    tanggal,
+                    lokasi_absen,
+                    jam_keluar,
+                    jam_masuk,
+                  },
+                  index
+                ) => (
+                  <tr key={index} className="border-top">
+                    <td>{index + 1}</td>
+                    <td>{nama_karyawan}</td>
+                    <td>{tanggal}</td>
+                    <td>{lokasi_absen}</td>
+                    <td>{jam_masuk}</td>
+                    <td>{jam_keluar}</td>
 
-
-                  <td>
-                    <Button onClick={() => removeData(index)}>
-                      <i className="bi bi-trash"></i>
-                    </Button>
-                  </td>
-                </tr>
-              ))}
+                    <td>
+                      <Button onClick={() => removeData(index)}>
+                        <i className="bi bi-trash"></i>
+                      </Button>
+                    </td>
+                  </tr>
+                )
+              )}
             </tbody>
           </Table>
         </CardBody>

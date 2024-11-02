@@ -1,61 +1,5 @@
-import {
-  Card,
-  CardBody,
-  CardTitle,
-  CardSubtitle,
-  Table,
-  Button,
-} from "reactstrap";
-import user1 from "../assets/images/users/user1.jpg";
-import user2 from "../assets/images/users/user2.jpg";
-import user3 from "../assets/images/users/user3.jpg";
-import user4 from "../assets/images/users/user4.jpg";
-import user5 from "../assets/images/users/user5.jpg";
+import { Card, CardBody, CardTitle, Table, Button } from "reactstrap";
 import { useState } from "react";
-
-const tableData = [
-  {
-    name: "Wahyu Rifia Rizki",
-    izin: "Pulang Lebih Awal",
-    tanggal: "2023-05-10",
-    jam: "10:35:00",
-    keterangan: "Sakit",
-    status: "Menunggu Konfirmasi",
-  },
-  {
-    name: "Wahyu Rifia Rizki",
-    izin: "Pulang Lebih Awal",
-    tanggal: "2023-05-10",
-    jam: "10:35:00",
-    keterangan: "Sakit",
-    status: "Menunggu Konfirmasi",
-  },
-  {
-    name: "Wahyu Rifia Rizki",
-    izin: "Pulang Lebih Awal",
-    tanggal: "2023-05-10",
-    jam: "10:35:00",
-    keterangan: "Sakit",
-    status: "Menunggu Konfirmasi",
-  },
-  {
-    name: "Wahyu Rifia Rizki",
-    izin: "Pulang Lebih Awal",
-    tanggal: "2023-05-10",
-    jam: "10:35:00",
-    keterangan: "Sakit",
-    status: "Menunggu Konfirmasi",
-  },
-  {
-    name: "Wahyu Rifia Rizki",
-    izin: "Pulang Lebih Awal",
-    tanggal: "2023-05-10",
-    jam: "10:35:00",
-    keterangan: "Sakit",
-    status: "Menunggu Konfirmasi",
-  },
-
-];
 
 const Izin = () => {
   const [data, setData] = useState([
@@ -138,8 +82,7 @@ const Izin = () => {
       jam: "16:00:00",
       keterangan: "Acara Resmi",
       status: "Menunggu Konfirmasi",
-    }
-
+    },
   ]);
   const removeData = (index) => {
     const updateData = data.filter((_, i) => i !== index);
@@ -152,7 +95,6 @@ const Izin = () => {
         <CardBody>
           <div className="d-flex gap-5">
             <CardTitle tag="h5">Daftar Izin Karyawan</CardTitle>
-
           </div>
           <Table className="no-wrap mt-3 align-middle" responsive borderless>
             <thead>
@@ -168,37 +110,24 @@ const Izin = () => {
               </tr>
             </thead>
             <tbody>
-              {data.map(({ name, izin, tanggal, jam, keterangan, status }, index) => (
-                <tr key={index} className="border-top">
-
-                  <td>
-                    {index + 1}
-                  </td>
-                  <td>
-                    {name}
-                  </td>
-                  <td>
-                    {izin}
-                  </td>
-                  <td>
-                    {tanggal}
-                  </td>
-                  <td>
-                    {jam}
-                  </td>
-                  <td>
-                    {keterangan}
-                  </td>
-                  <td>
-                    {status}
-                  </td>
-                  <td>
-                    <Button onClick={() => removeData(index)}>
-                      <i className="bi bi-trash"></i>
-                    </Button>
-                  </td>
-                </tr>
-              ))}
+              {data.map(
+                ({ name, izin, tanggal, jam, keterangan, status }, index) => (
+                  <tr key={index} className="border-top">
+                    <td>{index + 1}</td>
+                    <td>{name}</td>
+                    <td>{izin}</td>
+                    <td>{tanggal}</td>
+                    <td>{jam}</td>
+                    <td>{keterangan}</td>
+                    <td>{status}</td>
+                    <td>
+                      <Button onClick={() => removeData(index)}>
+                        <i className="bi bi-trash"></i>
+                      </Button>
+                    </td>
+                  </tr>
+                )
+              )}
             </tbody>
           </Table>
         </CardBody>

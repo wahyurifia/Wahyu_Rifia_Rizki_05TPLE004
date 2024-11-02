@@ -1,7 +1,6 @@
 import { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-import "./index.css";
 import "./assets/scss/style.scss";
 import { HashRouter } from "react-router-dom";
 import Loader from "./layouts/loader/Loader";

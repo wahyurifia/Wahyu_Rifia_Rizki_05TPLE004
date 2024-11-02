@@ -1,65 +1,20 @@
-import {
-  Card,
-  CardBody,
-  CardTitle,
-  CardSubtitle,
-  Table,
-  Button,
-} from "reactstrap";
+import { Card, CardBody, CardTitle, Table, Button } from "reactstrap";
 import { AddKaryawan } from "./ui/Modal";
 import { useEffect, useState } from "react";
 
-const tableData = [
-  {
-    name: "Hanna Gover",
-    email: "hgover@gmail.com",
-    kode: "200",
-    alamat: "Lorem ipsum dolor sit amet consectetur, adipisicing aut repellat voluptatum tempora in.",
-    jabatan: "Staff",
-  },
-  {
-    name: "Hanna Gover",
-    email: "hgover@gmail.com",
-    kode: "200",
-    alamat: "Lorem ipsum dolor sit amet consectetur, adipisicing aut repellat voluptatum tempora in.",
-    jabatan: "Staff",
-  },
-  {
-    name: "Hanna Gover",
-    email: "hgover@gmail.com",
-    kode: "200",
-    alamat: "Lorem ipsum dolor sit amet consectetur, adipisicing  aut repellat voluptatum tempora in.",
-    jabatan: "Staff",
-  },
-  {
-    name: "Hanna Gover",
-    email: "hgover@gmail.com",
-    kode: "200",
-    alamat: "Lorem ipsum dolor sit amet consectetur, adipisicing aut repellat voluptatum tempora in.",
-    jabatan: "Staff",
-  },
-  {
-    name: "Hanna Gover",
-    email: "hgover@gmail.com",
-    kode: "200",
-    alamat: "Lorem ipsum dolor sit amet consectetur, adipisicing aut repellat voluptatum tempora in.",
-    jabatan: "Staff",
-  },
-];
-
 const Karyawan = () => {
   const [users, setUsers] = useState([]);
-  const getUsers = JSON.parse(localStorage.getItem('users')) || [];
+  const getUsers = JSON.parse(localStorage.getItem("users")) || [];
 
   useEffect(() => {
-    setUsers(getUsers)
-  }, [])
+    setUsers(getUsers);
+  }, []);
 
   const removeUser = (index) => {
     const updatedUsers = users.filter((_, i) => i !== index);
-    localStorage.setItem('users', JSON.stringify(updatedUsers));
+    localStorage.setItem("users", JSON.stringify(updatedUsers));
     setUsers(updatedUsers);
-  }
+  };
   return (
     <div>
       <Card>
@@ -83,15 +38,9 @@ const Karyawan = () => {
             <tbody>
               {users.map(({ name, email, alamat, jabatan }, index) => (
                 <tr key={index} className="border-top">
-                  <td>
-                    {index + 1}
-                  </td>
-                  <td>
-                    {"KA0" + (index + 1)}
-                  </td>
-                  <td >
-                    {name}
-                  </td>
+                  <td>{index + 1}</td>
+                  <td>{"KA0" + (index + 1)}</td>
+                  <td>{name}</td>
                   <td>{email}</td>
                   <td>{alamat}</td>
                   <td>{jabatan}</td>

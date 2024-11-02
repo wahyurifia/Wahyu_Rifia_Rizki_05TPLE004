@@ -1,37 +1,20 @@
-import {
-  Card,
-  CardBody,
-  CardTitle,
-  CardSubtitle,
-  Table,
-  Button,
-} from "reactstrap";
-import user1 from "../assets/images/users/user1.jpg";
-import user2 from "../assets/images/users/user2.jpg";
-import user3 from "../assets/images/users/user3.jpg";
-import user4 from "../assets/images/users/user4.jpg";
-import user5 from "../assets/images/users/user5.jpg";
+import { Card, CardBody, CardTitle, Table, Button } from "reactstrap";
 import { AddJabatan } from "./ui/Modal";
 import { useEffect, useState } from "react";
-
-const tableData =
-{
-  jabatan: "Kepala Bagian",
-}
 
 const Jabatan = () => {
   const [jabatans, setJabatans] = useState([]);
 
-  const getJabatan = JSON.parse(localStorage.getItem("jabatans")) || []
+  const getJabatan = JSON.parse(localStorage.getItem("jabatans")) || [];
   useEffect(() => {
     setJabatans(getJabatan);
-  }, [])
+  }, []);
 
   const removeUser = (index) => {
     const updatedJabatan = jabatans.filter((_, i) => i !== index);
-    localStorage.setItem('jabatans', JSON.stringify(updatedJabatan));
+    localStorage.setItem("jabatans", JSON.stringify(updatedJabatan));
     setJabatans(updatedJabatan);
-  }
+  };
 
   return (
     <div>
@@ -53,12 +36,8 @@ const Jabatan = () => {
             <tbody>
               {jabatans.map(({ jabatan }, index) => (
                 <tr key={index} className="border-top">
-                  <td>
-                    {index + 1}
-                  </td>
-                  <td>
-                    {"JAB0" + (index + 1)}
-                  </td>
+                  <td>{index + 1}</td>
+                  <td>{"JAB0" + (index + 1)}</td>
                   <td>{jabatan}</td>
                   <td>
                     <Button onClick={() => removeUser(index)}>

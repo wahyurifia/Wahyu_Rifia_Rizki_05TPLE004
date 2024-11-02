@@ -7,38 +7,41 @@ const dataKaryawan = [
     email: "wahyu@gmail.com",
     alamat: "Jln. Poris Indah, Tangerang, Banten",
     jabatan: "Manager",
-  }
-]
+  },
+];
 const dataJabatan = [
   {
-    jabatan: "Manager"
-  }
+    jabatan: "Manager",
+  },
 ];
 const dataDivisi = [
   {
     divisi: "Umum",
   },
-]
+];
 const Starter = () => {
+  const jumlahKaryawan = JSON.parse(
+    localStorage.getItem("users") || "[]"
+  ).length;
 
   const karyawan = localStorage.getItem("users");
   const jabatan = localStorage.getItem("jabatans");
-  const divisi = localStorage.getItem("divisis")
+  const divisi = localStorage.getItem("divisis");
   useEffect(() => {
     if (!karyawan) {
-      localStorage.setItem("users", JSON.stringify(dataKaryawan))
+      localStorage.setItem("users", JSON.stringify(dataKaryawan));
     }
     if (!jabatan) {
-      localStorage.setItem("jabatans", JSON.stringify(dataJabatan))
+      localStorage.setItem("jabatans", JSON.stringify(dataJabatan));
     }
 
     if (!divisi) {
-      localStorage.setItem("divisis", JSON.stringify(dataDivisi))
+      localStorage.setItem("divisis", JSON.stringify(dataDivisi));
     }
-  }, [])
+  }, []);
   return (
     <Row>
-      <h5 className="mb-3 mt-3">Colored Card</h5>
+      <h5 className="mb-3 mt-3">Dashboard</h5>
       <Col md="6" lg="3">
         <Card body color="dark" inverse className="">
           <div className="">
@@ -47,11 +50,9 @@ const Starter = () => {
             </Button>
           </div>
           <div className="d-flex flex-column">
-            <CardText className="my-3" >
-              Data Pegawai
-            </CardText>
+            <CardText className="my-3">Data Pegawai</CardText>
             <Button color="info" className="my-3">
-              0
+              {jumlahKaryawan}
             </Button>
           </div>
         </Card>
@@ -64,10 +65,10 @@ const Starter = () => {
             </Button>
           </div>
           <div className="d-flex flex-column">
-            <CardText className="my-3" >
-              Absensi Hari ini
-            </CardText>
-            <Button color="info" className="my-3">10</Button>
+            <CardText className="my-3">Absensi Hari ini</CardText>
+            <Button color="info" className="my-3">
+              10
+            </Button>
           </div>
         </Card>
       </Col>
@@ -79,10 +80,10 @@ const Starter = () => {
             </Button>
           </div>
           <div className="d-flex flex-column">
-            <CardText className="my-3" >
-              Izin menunggu Konfirmasi
-            </CardText>
-            <Button color="info" className="my-3">5</Button>
+            <CardText className="my-3">Izin menunggu Konfirmasi</CardText>
+            <Button color="info" className="my-3">
+              5
+            </Button>
           </div>
         </Card>
       </Col>
@@ -94,10 +95,10 @@ const Starter = () => {
             </Button>
           </div>
           <div className="d-flex flex-column">
-            <CardText className="my-3" >
-              Lembur menunggu Konfirmasi
-            </CardText>
-            <Button color="info" className="my-3">6</Button>
+            <CardText className="my-3">Lembur menunggu Konfirmasi</CardText>
+            <Button color="info" className="my-3">
+              6
+            </Button>
           </div>
         </Card>
       </Col>
