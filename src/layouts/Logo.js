@@ -1,11 +1,9 @@
-import  { ReactComponent as LogoDark1 } from "../assets/images/logos/materialpro.svg";
+import { ReactComponent as LogoDark1 } from "../assets/images/logos/materialpro.svg";
 import { Link } from "react-router-dom";
 
 const Logo = () => {
   return (
-    <Link to="/">
-      <LogoDark1 />
-    </Link>
+    <h6>UNIVERSITAS PAMULANG</h6>
   );
 };
 

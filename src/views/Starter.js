@@ -1,86 +1,103 @@
-import { Button, Card, CardText, CardTitle, Col, Row } from "reactstrap";
-// import SalesChart from "../components/dashboard/SalesChart";
-// import Feeds from "../components/dashboard/Feeds";
-// import ProjectTables from "../components/dashboard/ProjectTable";
+import { useEffect } from "react";
+import { Button, Card, CardText, Col, Row } from "reactstrap";
 
-// import Blog from "../components/dashboard/Blog";
-import bg1 from "../assets/images/bg/bg1.jpg";
-import bg2 from "../assets/images/bg/bg2.jpg";
-import bg3 from "../assets/images/bg/bg3.jpg";
-import bg4 from "../assets/images/bg/bg4.jpg";
-
-export const BlogData = [
+const dataKaryawan = [
   {
-    image: bg1,
-    title: "This is simple blog",
-    subtitle: "2 comments, 1 Like",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    btnbg: "primary",
-  },
+    name: "Wahyu Rifia Rizki",
+    email: "wahyu@gmail.com",
+    alamat: "Jln. Poris Indah, Tangerang, Banten",
+    jabatan: "Manager",
+  }
+]
+const dataJabatan = [
   {
-    image: bg2,
-    title: "Lets be simple blog",
-    subtitle: "2 comments, 1 Like",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    btnbg: "primary",
-  },
-  {
-    image: bg3,
-    title: "Don't Lamp blog",
-    subtitle: "2 comments, 1 Like",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    btnbg: "primary",
-  },
-  {
-    image: bg4,
-    title: "Simple is beautiful",
-    subtitle: "2 comments, 1 Like",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    btnbg: "primary",
-  },
+    jabatan: "Manager"
+  }
 ];
-
+const dataDivisi = [
+  {
+    divisi: "Umum",
+  },
+]
 const Starter = () => {
+
+  const karyawan = localStorage.getItem("users");
+  const jabatan = localStorage.getItem("jabatans");
+  const divisi = localStorage.getItem("divisis")
+  useEffect(() => {
+    if (!karyawan) {
+      localStorage.setItem("users", JSON.stringify(dataKaryawan))
+    }
+    if (!jabatan) {
+      localStorage.setItem("jabatans", JSON.stringify(dataJabatan))
+    }
+
+    if (!divisi) {
+      localStorage.setItem("divisis", JSON.stringify(dataDivisi))
+    }
+  }, [])
   return (
     <Row>
       <h5 className="mb-3 mt-3">Colored Card</h5>
       <Col md="6" lg="3">
-        <Card body color="primary" inverse>
-          <CardTitle tag="h5">Special Title Treatment</CardTitle>
-          <CardText>
-            With supporting text below as a natural lead-in to additional
-            content.
-          </CardText>
-          <div>
-            <Button>Button</Button>
+        <Card body color="dark" inverse className="">
+          <div className="">
+            <Button color="primary block px-5 py-3" size="lg">
+              <i className="bi bi-people text-lg"></i>
+            </Button>
+          </div>
+          <div className="d-flex flex-column">
+            <CardText className="my-3" >
+              Data Pegawai
+            </CardText>
+            <Button color="info" className="my-3">
+              0
+            </Button>
           </div>
         </Card>
       </Col>
       <Col md="6" lg="3">
-        <Card body color="info" inverse>
-          <CardTitle tag="h5">Special Title Treatment</CardTitle>
-          <CardText>
-            With supporting text below as a natural lead-in to additional
-            content.
-          </CardText>
-          <div>
-            <Button>Button</Button>
+        <Card body color="dark" inverse className="">
+          <div className="">
+            <Button color="primary block px-5 py-3" size="lg">
+              <i className="bi bi-people text-lg"></i>
+            </Button>
+          </div>
+          <div className="d-flex flex-column">
+            <CardText className="my-3" >
+              Absensi Hari ini
+            </CardText>
+            <Button color="info" className="my-3">10</Button>
           </div>
         </Card>
       </Col>
       <Col md="6" lg="3">
-        <Card body color="success" inverse>
-          <CardTitle tag="h5">Special Title Treatment</CardTitle>
-          <CardText>
-            With supporting text below as a natural lead-in to additional
-            content.
-          </CardText>
-          <div>
-            <Button>Button</Button>
+        <Card body color="dark" inverse className="">
+          <div className="">
+            <Button color="primary block px-5 py-3" size="lg">
+              <i className="bi bi-people text-lg"></i>
+            </Button>
+          </div>
+          <div className="d-flex flex-column">
+            <CardText className="my-3" >
+              Izin menunggu Konfirmasi
+            </CardText>
+            <Button color="info" className="my-3">5</Button>
+          </div>
+        </Card>
+      </Col>
+      <Col md="6" lg="3">
+        <Card body color="dark" inverse className="">
+          <div className="">
+            <Button color="primary block px-5 py-3" size="lg">
+              <i className="bi bi-people text-lg"></i>
+            </Button>
+          </div>
+          <div className="d-flex flex-column">
+            <CardText className="my-3" >
+              Lembur menunggu Konfirmasi
+            </CardText>
+            <Button color="info" className="my-3">6</Button>
           </div>
         </Card>
       </Col>
